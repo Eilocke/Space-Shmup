@@ -29,14 +29,31 @@ function getDeltaTime()
 
 	// This is where constants get dumped
 var keyboard = new Keyboard();
+var v2Handler = new Vector2();
 var SCREEN_WIDTH = canvas.width;
 var SCREEN_HEIGHT = canvas.height;
+var BASE_SHIP_ACCEL = 500;
+var BASE_DRAG = 250;
+var BASE_MAXSPEED = 200;
+var CRUISE_SPEED = 250;
+var BULLET_SPEED = 5;
+var AI_NONE = 0;
 
 	// And some variables...
 var fps = 0;
 var fpsCount = 0;
 var fpsTime = 0;
+var dt = getDeltaTime();
 
+	// Limits inputs to a minimum and maximum.
+function bound(value, min, max)
+{
+	if(value < min)
+		return min;
+	if(value > max)
+		return max;
+	return value;
+}
 
 	// Starting up the state manager
 var stateManager = new StateManager();
@@ -45,9 +62,8 @@ stateManager.pushState(new SplashState());
 function run()
 {
 	
-	var dt = getDeltaTime();
-	
-	context.fillStyle = "#A9F5F2";		
+	dt = getDeltaTime();
+	context.fillStyle = "#100012";		
 	context.fillRect(0, 0, canvas.width, canvas.height);
 	stateManager.update(dt);
 	stateManager.draw();
@@ -64,7 +80,7 @@ function run()
 		// draw the FPS
 	context.fillStyle = "#f00";
 	context.font="14px Arial";
-	context.fillText("FPS: " + fps, 580, 20, 100);
+	context.fillText("FPS: " + fps, 1160, 20, 100);
 	
 }
 //-------------------- Don't modify anything below here

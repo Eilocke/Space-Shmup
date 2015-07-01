@@ -2,7 +2,7 @@ SCHMIDT:
 main.js
 splashstate.js
 menustate.js
-index.html
+player.js
 
 HERITAGE:
 keyboard.js
