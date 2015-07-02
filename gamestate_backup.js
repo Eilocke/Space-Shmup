@@ -29,6 +29,9 @@ var enemies = [];
 var score = 0;
 var scoreMultiplier = 1;
 var playerX = 0;
+var et = [];
+var ebt = [];
+var pbt = [];
 
 function roll(max, min)
 {
@@ -130,13 +133,13 @@ function updateEnemies()
 		enemies[i].update(dt);
 		if(enemies[i].health <= 0)
 		{
-			enemies.splice(i, 1);
+			et.push(i);
 			sfxBoom.play();		
 			scoreAdd(50);
 		}
-		if(enemies[i].offscreen == true)
+		if(enemies[i].position.x < worldOffsetX)
 		{
-			enemies.splice(i, 1);				
+			et.push(i);
 		}
 	}
 }
@@ -161,23 +164,26 @@ function updateBullets()
 												enemies[e].position.x, enemies[e].position.y,  enemies[e].width, enemies[e].height))
 			{
 			
-				playerBullets[b].depleted = true;
+				pbt.push(b);
 				enemies[e].health -= 1;
 				
 			}
 		} 
-		if (playerBullets[b].position.x < worldOffsetX || playerBullets[b].position.x > worldOffsetX + SCREEN_WIDTH || playerBullets[b].depleted)
+		if (playerBullets[b].position.x < worldOffsetX || playerBullets[b].position.x > worldOffsetX + SCREEN_WIDTH)
 		{
-			playerBullets.splice(b, 1);
+			
+			pbt.push(b);
+
 		}
 	}
 	for(var b = 0; b < enemyBullets.length; b++)
 	{
 		enemyBullets[b].update();
 								
-		if (enemyBullets[b].position.x < worldOffsetX || enemyBullets[b].position.x > worldOffsetX + SCREEN_WIDTH || enemyBullets[b].depleted)
+		if (enemyBullets[b].position.x < worldOffsetX)
 		{
-			enemyBullets.splice(b, 1);
+			ebt.push(b);
+
 		}
 	}
 }
@@ -231,6 +237,25 @@ function drawHud()
 		context.drawImage(epipImage, energyUpdate, 19);
 		energyUpdate += 11;		
 	}
+}
+
+function handleTrash()
+{
+	for(idx = 0; idx < et.length; idx++)
+	{
+		enemies.splice(et[idx], 1);
+	}
+	for(idx = 0; idx < pbt.length; idx++)
+	{
+		playerBullets.splice(pbt[idx], 1);
+	}
+	for(idx = 0; idx < ebt.length; idx++)
+	{
+		enemyBullets.splice(ebt[idx], 1);
+	}
+	et = [];
+	pbt = [];
+	ebt = [];
 }
 
 // DETECTION BY PIXEL
@@ -335,6 +360,7 @@ GameState.prototype.update = function(dt)
 	updateBullets();
 	updateEnemies();
 	lifeHandler();
+	handleTrash();
 }
 
 GameState.prototype.draw = function() 
