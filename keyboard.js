@@ -9,7 +9,7 @@ var Keyboard = function() {
 	
 	// Key Constants
 	this.KEY_R = 82;
-	this.KEY_SPACE = 32;
+	this.KEY_SPACE = 16;
 	this.KEY_LEFT = 37;
 	this.KEY_UP = 38;
 	this.KEY_RIGHT = 39;
