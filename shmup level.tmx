@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="15" tilewidth="70" tileheight="70" backgroundcolor="#100012" nextobjectid="1">
+ <tileset firstgid="1" name="tileset" tilewidth="70" tileheight="70" spacing="2" margin="3">
+  <image source="tileset.png" width="580" height="290"/>
+ </tileset>
+ <layer name="Foreground" width="200" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzt2LENACAIRUF2YP9d7RlA/XrX0FKQvIQqAOB1fXoB4rkhAAAAYBd/CADIl9LzHhMAbjI7pVfATxYMDQCs
+  </data>
+ </layer>
+ <layer name="Walls" width="200" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztmssOgzAMBA3lAu2R///W4oOlCBUUpCax1zvS3jgkjodHyC4i+01mIdHYBGPddB53vekhCHXOBoof7yOTjHfAMv3Ip9nsSStQ/DA8eEIP/PM6slRch+aHMcoTNDdq+ygatX2vfYS2piXmSY8g1hG1P1CfC4T8A/pByDX0g5Br6Ed/EL9jUSn9QN2D8IbuX7HOMSj9yPws0XvD2im2x0tH/JPdD/Ni1D/CGp8ieGR1jDDWJ2T1Y7QXT+J9TbSW5XiRHMnmRyQvovhxPvPZcrzn9+DWLmbzw8P53S+mzxql
+  </data>
+ </layer>
+ <layer name="Background" width="200" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20MH6AAAAAAAAAAAAAAAOBvLuAAAQ==
+  </data>
+ </layer>
+ <layer name="Mayflies" width="200" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzt2LsKgEAQQ1E7//+PLRZxwUe17t5JcsDCRibRQXTbxtt/uKaavTtWz/F1HjELZSeeEGdSlr4b8k706PMpce+6yk5QpCdf9HtP+f6g9zSaY95q74y3WWdnqNTZCC55K+7EG4UMsZ7STpwUM5Gp9ezw/ChnI6ret/NOrMys3Lcq5XtG+X/VI8zwp6r5HN4ZdC7dV8mZnWjc88clO3GXLuYhdp2deEb8/iA5AHziAiM=
+  </data>
+ </layer>
+ <layer name="Sams" width="200" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzt2LENACAIRUFK9p/YngHUr3cNLQXJS6gCAF7XpxcgnhsCAAAAdvGHAIB8KT3vMQHgJrNTegX8ZAHB3ABJ
+  </data>
+ </layer>
+ <layer name="Quick Mayfly" width="200" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzt0zkOwCAMBEAa/v/llOlQFCR8MPMB7MU7BsBrRg8ASXXtxhx9d+OsTnekF3fz999E9yT6/RvJOz+9iHV79h3ur8MO5FLlplZzVtkhM/mtVbmxKnNWIs/edGbfn/xkXouenCNnWNMRACCzBxQ8AMk=
+  </data>
+ </layer>
+ <layer name="LevelEnd" width="200" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzt07EJACAQwMCv3H9kGztJaSHcQUbIDPxrnYCbP6D5A5o/oPkDmj+g+QOaP6D5A5o/oPkDmj+g+QOaP6C9/mMD01kAtQ==
+  </data>
+ </layer>
+</map>

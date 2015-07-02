@@ -1,0 +1,11 @@
+Music
+Shot fired
+Enemy hit
+Player hit by bullet
+Player colliding with ship
+Player crashing into wall
+Enemy death
+Sam launch
+Energy up (should be very soft, it's just let the player know their energy is regenerating)
+
+powerup.js, deathstate.js, bullet.js and keyboard.js
