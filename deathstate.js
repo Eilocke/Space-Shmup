@@ -4,6 +4,10 @@ this.prototype = BaseState;
 }
 DeathState.prototype.load = function()
 {
+
+sfxBoom.play();		
+musicBackground.stop();
+
 }
 DeathState.prototype.unload = function() 
 {

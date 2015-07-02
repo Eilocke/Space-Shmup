@@ -16,7 +16,7 @@ var LAYER_WALLS = 1;
 var LAYER_BACKGROUND = 2;
 var LAYER_MAYFLIES = 4;
 var LAYER_SAMS = 5;
-var LAYER_QMAYFLIES = 6;
+var LAYER_HORNETS = 6;
 var LAYER_LEVELEND = 3;
 var MAX_LIFE = 20;
 var cells = [];
@@ -90,16 +90,16 @@ function initialize()
 		}
 	}
 	idx = 0;
-	for(var y = 0; y < level1.layers[LAYER_QMAYFLIES].height; y++)
+	for(var y = 0; y < level1.layers[LAYER_HORNETS].height; y++)
 	{
-		for(var x = 0; x < level1.layers[LAYER_QMAYFLIES].width; x++)
+		for(var x = 0; x < level1.layers[LAYER_HORNETS].width; x++)
 		{
-			if(level1.layers[LAYER_QMAYFLIES].data[idx] != 0)
+			if(level1.layers[LAYER_HORNETS].data[idx] != 0)
 			{
 				// Creates enemies at spawn points
 				var px = tileToPixel(x);
 				var py = tileToPixel(y);
-				var e = new Mayfly(px, py, 2);
+				var e = new Hornet(px, py, 2);
 				enemies.push(e);
 			}
 		idx++;
@@ -130,7 +130,8 @@ function updateEnemies()
 		enemies[i].update(dt);
 		if(enemies[i].health <= 0)
 		{
-			enemies.splice(i, 1);	
+			enemies.splice(i, 1);
+			sfxBoom.play();		
 			scoreAdd(50);
 		}
 		if(enemies[i].offscreen == true)
@@ -321,6 +322,7 @@ GameState.prototype.load = function()
 {
 	player = new Player();
 	initialize();
+	musicBackground.play();
 }
 
 GameState.prototype.unload = function() 

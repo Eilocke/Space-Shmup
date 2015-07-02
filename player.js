@@ -11,6 +11,7 @@ var ANIM_MAX = 8;
 var Player = function(st)
 {
 	this.sprite = new Sprite("player_ship.png");
+	//Most of these animations are unused, but they're in the sprite so I built them anyway.
     //healthy moving
     this.sprite.buildAnimation(8, 2, 108, 37, 0.1,[0, 1,]);
     //healthy shooting
@@ -56,8 +57,8 @@ var Player = function(st)
 	this.invincibility = 0;
 	this.width = 100;
 	this.height = 30;
-	this.hitboxX = 10;
-	this.hitboxY = 10;
+	this.hitboxX = 32;
+	this.hitboxY = 32;
 	this.life = 20;
 	this.energy = 20;
 	
@@ -92,12 +93,14 @@ Player.prototype.update = function(dt)
 		this.cooldown = 0.2;
 		this.eCooldown = 1;
 		this.energy -= 1;
-		
+		sfxFire.play();		
 	}
 	else if(this.energy < 20 && this.eCooldown < 0)
 	{
 		this.eCooldown = 0.2;
 		this.energy += 1;
+		sfxEnergy.play();
+
 	}
 	if(keyboard.isKeyDown(keyboard.KEY_D) == true )
 	{

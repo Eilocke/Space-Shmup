@@ -45,6 +45,41 @@ var fpsCount = 0;
 var fpsTime = 0;
 var dt = getDeltaTime();
 
+	// Defines sound effects (using howler)
+	musicBackground = new Howl(
+	{
+		urls: ["Reformat.mp3"],
+		loop: true,
+		buffer: true,
+		volume: 0.5
+	});
+	sfxFire = new Howl(
+	{
+		urls: ["shoot.mp3"],
+		buffer: true,
+		volume: 0.2,
+		onend: function(){
+			isSfxPlaying = false;
+		}
+	});
+	sfxEnergy = new Howl(
+	{
+		urls: ["energy.wav"],
+		buffer: true,
+		volume: 0.3,
+		onend: function(){
+			isSfxPlaying = false;
+		}
+	});	
+	sfxBoom = new Howl(
+	{
+		urls: ["explosion.wav"],
+		buffer: true,
+		volume: 0.3,
+		onend: function(){
+			isSfxPlaying = false;
+		}
+	});	
 	// Limits inputs to a minimum and maximum.
 function bound(value, min, max)
 {
